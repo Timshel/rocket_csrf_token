@@ -12,7 +12,7 @@
 //!
 //! ```toml
 //! [dependencies]
-//! rocket_csrf_token = "0.3.2"
+//! rocket_csrf_token = "0.5.1"
 //! ```
 //!
 //! 2. Import the library into your Rocket application code:
@@ -121,7 +121,7 @@
 
 use base64::{engine::general_purpose, Engine as _};
 use bcrypt::{hash, verify, BcryptError};
-use rand::{distributions::Standard, Rng};
+use rand::{distr::StandardUniform, Rng};
 use rocket::{
     async_trait, error,
     fairing::{self, Fairing as RocketFairing, Info, Kind},
@@ -346,8 +346,8 @@ impl RocketFairing for Fairing {
             return;
         }
 
-        let values: Vec<u8> = rand::thread_rng()
-            .sample_iter(Standard)
+        let values: Vec<u8> = rand::rng()
+            .sample_iter(StandardUniform)
             .take(config.cookie_len)
             .collect();
 

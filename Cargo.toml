@@ -1,6 +1,6 @@
 [package]
 name = "rocket_csrf_token"
-version = "0.3.5"
+version = "0.5.1"
 authors = ["Alex Kotov <kotovalexarian@gmail.com>", "Mahmoud Harmouch <oss@wiseai.dev>"]
 edition = "2021"
 description = "CSRF (Cross-Site Request Forgery) protection for Rocket web framework"
@@ -13,7 +13,7 @@ categories = ["web-programming"]
 publish = true
 
 [dependencies]
-base64 = "0.21.5"
-bcrypt = "0.15.0"
-rand = "0.8.5"
-rocket = { version = "=0.5.0", features = ["secrets"] }
+base64 = "0.22.1"
+bcrypt = "0.18.0"
+rand = "0.9.2"
+rocket = { version = "0.5.1", features = ["secrets"] }

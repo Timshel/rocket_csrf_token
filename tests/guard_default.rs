@@ -26,7 +26,7 @@ fn index(csrf_token: CsrfToken) -> String {
 #[test]
 fn respond_with_valid_authenticity_token() {
     let mut raw = [0u8; 32];
-    rand::thread_rng().fill_bytes(&mut raw);
+    rand::rng().fill_bytes(&mut raw);
 
     let encoded = general_purpose::STANDARD.encode(raw);
 
